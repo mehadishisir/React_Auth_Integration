@@ -1,5 +1,7 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import React from "react";
 import { Link } from "react-router";
+import { auth } from "../../firebase.init";
 
 const Signup = () => {
   const handleSignup = (e) => {
@@ -9,6 +11,18 @@ const Signup = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log("Signup details:", name, email, password);
+    // firebase signup logic will go here
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log("User signed up:", user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error("Error during signup:", errorCode, errorMessage);
+      });
   };
   return (
     <div className="card  bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl">
