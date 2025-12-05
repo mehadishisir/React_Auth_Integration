@@ -1,11 +1,15 @@
-import { use, useContext } from "react";
+// import { use, useContext } from "react";
+import { use } from "react";
 import { NavLink } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
-import AuthProvider from "../../context/AuthProvider";
+// import { AuthContext } from "../../context/AuthContext";
+// import AuthProvider from "../../context/AuthProvider";
 
 const Navbar = () => {
-  const userInfo = useContext(AuthContext);
+  const userInfo = use(AuthContext);
   console.log("nav", userInfo);
+  //   const userInfo = useContext(AuthContext);
+  //   console.log("nav", userInfo);
   const links = (
     <>
       <li>
