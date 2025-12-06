@@ -1,13 +1,14 @@
 // import { use, useContext } from "react";
 import { use } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../context/AuthContext";
 // import { AuthContext } from "../../context/AuthContext";
 // import AuthProvider from "../../context/AuthProvider";
 
 const Navbar = () => {
-  const userInfo = use(AuthContext);
-  console.log("nav", userInfo);
+  const { user } = use(AuthContext);
+  console.log("nav user", user);
+  //   console.log("nav", userInfo);
   //   const userInfo = useContext(AuthContext);
   //   console.log("nav", userInfo);
   const links = (
@@ -57,7 +58,13 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        {user ? (
+          <a className="btn">SignOut</a>
+        ) : (
+          <Link to="/login" className="btn">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );
