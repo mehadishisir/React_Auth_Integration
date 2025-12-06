@@ -1,5 +1,6 @@
 import {
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { AuthContext } from "./AuthContext";
@@ -14,6 +15,13 @@ const AuthProvider = ({ children }) => {
     //login user logic
     return signInWithEmailAndPassword(auth, email, password);
   };
+  onAuthStateChanged(auth, (currentUser) => {
+    if (currentUser) {
+      console.log("Auth State Changed - User logged in:", currentUser);
+    } else {
+      console.log("Auth State Changed - No user logged in");
+    }
+  });
   const userInfo = {
     createUser,
     loginUser,
