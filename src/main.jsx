@@ -9,6 +9,8 @@ import Home from "./pages/Home/Home.jsx";
 import Signup from "./pages/signup/Signup.jsx";
 import Login from "./pages/login/Login.jsx";
 import AuthProvider from "./context/AuthProvider.jsx";
+import Orders from "./pages/orders/Orders.jsx";
+import Profile from "./pages/profile/Profile.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
       {
         path: "login",
         Component: Login,
+      },
+      {
+        path: "orders",
+        Component: Orders,
+      },
+      {
+        path: "profile",
+        Component: Profile,
       },
     ],
   },
