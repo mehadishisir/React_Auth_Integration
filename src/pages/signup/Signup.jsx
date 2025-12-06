@@ -1,7 +1,7 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import React, { use, useContext } from "react";
+// import { createUserWithEmailAndPassword } from "firebase/auth";
+import React, { useContext } from "react";
 import { Link } from "react-router";
-import { auth } from "../../firebase.init";
+// import { auth } from "../../firebase.init";
 
 import { AuthContext } from "../../context/AuthContext";
 
